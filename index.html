@@ -3,190 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sigese - Visão Estratégica</title>
+    <title>Sigese - Visão Estratégica (TV 43")</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* TEMA CYBER/TECH */
+        /* CONFIGURAÇÃO PARA TELAS GRANDES (TV 43") */
         :root {
             --bg-dark: #020617;
-            --card-bg: rgba(13, 43, 85, 0.4);
+            --card-bg: rgba(13, 43, 85, 0.6);
             --neon-blue: #00f2ff;
             --accent-teal: #0288A7;
-            --text-light: #f1f5f9;
-            --text-dim: #94a3b8;
-            --link-color: #00f2ff;
+            --text-light: #ffffff;
+            --text-dim: #cbd5e1;
+            
+            /* Escala de Fontes Ampliada */
+            --fs-title: 68px;
+            --fs-subtitle: 42px;
+            --fs-body: 34px;
+            --fs-card-title: 38px;
         }
 
         * { box-sizing: border-box; }
         body { 
             background-color: var(--bg-dark); 
             color: var(--text-light);
-            display: flex; 
-            flex-direction: column;
-            gap: 40px; 
             margin: 0; 
-            padding: 40px 0; 
-            align-items: center;
+            padding: 0;
             font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
         }
 
         .background-pattern {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-image: radial-gradient(circle at 2px 2px, rgba(0, 242, 255, 0.05) 1px, transparent 0);
-            background-size: 40px 40px;
+            background-image: radial-gradient(circle at 2px 2px, rgba(0, 242, 255, 0.08) 1px, transparent 0);
+            background-size: 60px 60px;
             z-index: -1;
         }
 
         .slide-container {
-            width: 1280px;
-            height: 720px;
-            background-color: var(--bg-dark);
-            border: 1px solid rgba(0, 242, 255, 0.2);
-            border-radius: 4px;
-            position: relative;
-            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
             display: flex;
             flex-direction: column;
-            padding: 60px;
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+            padding: 80px 100px;
+            position: relative;
+            border-bottom: 2px solid rgba(0, 242, 255, 0.1);
         }
 
-        .slide-container::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            border: 2px solid transparent;
-            box-shadow: inset 0 0 20px rgba(0, 242, 255, 0.1);
-            pointer-events: none;
-        }
-
+        /* LOGO DIVINF AMPLIADO */
         .divinf-logo {
             position: absolute;
-            top: 40px;
-            right: 40px;
-            height: 50px;
+            top: 60px;
+            right: 80px;
+            height: 70px;
             z-index: 10;
         }
 
+        /* CABEÇALHO DO SLIDE */
         .slide-header {
-            margin-bottom: 30px;
-            border-bottom: 1px solid rgba(0, 242, 255, 0.3);
-            padding-bottom: 15px;
+            margin-bottom: 60px;
+            border-left: 12px solid var(--neon-blue);
+            padding-left: 30px;
         }
 
         .slide-header h2 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 38px;
+            font-size: var(--fs-subtitle);
             color: var(--neon-blue);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             margin: 0;
-            text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+            text-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
         }
 
+        /* CARDS TÉCNICOS AMPLIADOS */
         .card-layout {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
             flex-grow: 1;
+            align-content: center;
         }
 
         .tech-card {
             background: var(--card-bg);
-            border: 1px solid rgba(0, 242, 255, 0.2);
-            border-left: 4px solid var(--neon-blue);
-            padding: 25px;
-            border-radius: 4px;
-            backdrop-filter: blur(10px);
-            display: flex;
-            flex-direction: column;
+            border: 2px solid rgba(0, 242, 255, 0.3);
+            padding: 50px;
+            border-radius: 12px;
+            backdrop-filter: blur(15px);
         }
 
         .tech-card h3 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 18px;
+            font-size: var(--fs-card-title);
             margin-top: 0;
-            margin-bottom: 15px;
-            color: var(--text-light);
+            margin-bottom: 30px;
+            color: var(--neon-blue);
         }
 
         .tech-card p, .tech-card li {
-            font-size: 16px;
-            color: var(--text-dim);
-            line-height: 1.5;
+            font-size: var(--fs-body);
+            color: var(--text-light);
+            line-height: 1.4;
+            margin-bottom: 20px;
         }
 
-        .tech-card ul { padding-left: 18px; margin: 0; }
+        .tech-card ul { padding-left: 40px; }
 
-        .url-box {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 10px;
-            border-radius: 4px;
-            font-family: monospace;
-            font-size: 12px;
-            word-break: break-all;
-            color: var(--link-color);
-            margin-top: auto;
-            border: 1px solid rgba(0, 242, 255, 0.1);
-        }
-
+        /* SLIDE DE CAPA */
         .cover-layout {
-            text-align: center;
-            justify-content: center;
-            align-items: center;
             height: 100%;
             display: flex;
             flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
 
         .cover-layout h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 84px;
+            font-size: 140px;
             color: white;
             margin: 0;
-            text-shadow: 0 0 20px rgba(0, 242, 255, 0.8);
+            text-shadow: 0 0 30px rgba(0, 242, 255, 0.6);
         }
 
         .cover-layout .subtitle {
-            font-size: 24px;
+            font-size: 50px;
             color: var(--neon-blue);
-            letter-spacing: 4px;
-            margin-top: 20px;
+            letter-spacing: 8px;
+            margin-top: 30px;
+            font-weight: bold;
         }
 
-        .api-box {
-            background: #000;
-            padding: 20px;
-            border-radius: 8px;
-            font-family: monospace;
-            color: #22c55e;
-            border: 1px solid #1e293b;
-            margin-top: 15px;
-            font-size: 14px;
-        }
-
+        /* FOOTER */
         .slide-footer {
             position: absolute;
-            bottom: 30px;
-            left: 60px;
-            font-size: 12px;
+            bottom: 50px;
+            left: 100px;
+            font-size: 20px;
             color: var(--text-dim);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 3px;
+            font-weight: bold;
         }
 
-        .comparison-badge {
+        /* ESTILO PARA LINKS E URLS */
+        .url-box {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 22px;
+            color: var(--neon-blue);
+            border: 1px solid var(--neon-blue);
+            margin-top: 20px;
             display: inline-block;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 10px;
+        }
+
+        .url-box a {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .url-box a:hover {
+            text-decoration: underline;
+            text-shadow: 0 0 8px var(--neon-blue);
+        }
+
+        .badge {
+            padding: 8px 15px;
+            font-size: 18px;
             font-weight: bold;
-            text-transform: uppercase;
-            margin-bottom: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            display: inline-block;
         }
         .badge-old { background: #ef4444; color: white; }
         .badge-new { background: #22c55e; color: white; }
@@ -198,175 +193,134 @@
     <div class="background-pattern"></div>
 
     <!-- SLIDE 1: CAPA -->
-    <div class="slide-container" id="capa">
+    <div class="slide-container">
         <img src="DIVINF_LOGO.png" alt="Logo DIVINF" class="divinf-logo" onerror="this.style.display='none'">
         <div class="cover-layout">
             <h1>SIGESE</h1>
             <div class="subtitle">Visão Estratégica 2026</div>
-            <p style="margin-top: 40px; color: var(--text-dim);">Entrega Técnica: Transparência Intuitiva</p>
+            <p style="margin-top: 50px; font-size: 30px; color: var(--text-dim);">Transparência e Modernização Tecnológica</p>
         </div>
         <div class="slide-footer">TRT11 | SEDES | SEIMSIS | DIVINF</div>
     </div>
 
-    <!-- SLIDE 2: O QUE É O SIGESE -->
+    <!-- SLIDE 2: DESACOPLAMENTO ESTRATÉGICO -->
     <div class="slide-container">
         <img src="DIVINF_LOGO.png" alt="Logo DIVINF" class="divinf-logo" onerror="this.style.display='none'">
         <div class="slide-header">
-            <h2>O que é o Sigese</h2>
+            <h2>Estratégia de Desacoplamento</h2>
         </div>
         <div class="card-layout">
             <div class="tech-card">
-                <h3>Desenvolvimento</h3>
+                <h3>Independência do CMS</h3>
                 <ul>
-                    <li>Engenharia interna SEDES/SEIMSIS.</li>
-                    <li>Foco em UX e Transparência Ativa.</li>
+                    <li>Separação total entre Transparência e Portal Joomla.</li>
+                    <li>Permite instalação "limpa" do CMS oficial.</li>
                 </ul>
             </div>
             <div class="tech-card">
-                <h3>Arquitetura</h3>
+                <h3>Manutenibilidade</h3>
                 <ul>
-                    <li>Glossário visual via cards temáticos.</li>
-                    <li>Navegação simplificada por períodos.</li>
-                </ul>
-            </div>
-            <div class="tech-card">
-                <h3>Acesso</h3>
-                <ul>
-                    <li>Filtros e exportações instantâneas.</li>
-                    <li>Interface limpa e rápida.</li>
-                </ul>
-            </div>
-        </div>
-        <div class="slide-footer">URL: sigese.trt11.jus.br</div>
-    </div>
-
-    <!-- SLIDE 3: EVOLUÇÃO DA USABILIDADE (COMPARATIVO) -->
-    <div class="slide-container">
-        <img src="DIVINF_LOGO.png" alt="Logo DIVINF" class="divinf-logo" onerror="this.style.display='none'">
-        <div class="slide-header">
-            <h2>Evolução de Usabilidade</h2>
-        </div>
-        <div class="card-layout">
-            <div class="tech-card" style="border-left-color: #ef4444;">
-                <span class="comparison-badge badge-old">Modelo Anterior (DSpace)</span>
-                <h3>Interface Confusa</h3>
-                <p>Usuário precisa "adivinhar" que deve clicar no botão verde para acessar arquivos.</p>
-                <div class="url-box">bd.trt11.jus.br/xmlui/handle/bdtrt11/839032</div>
-            </div>
-            <div class="tech-card" style="border-left-color: #22c55e;">
-                <span class="comparison-badge badge-new">Novo Sigese</span>
-                <h3>Navegação Intuitiva</h3>
-                <p>O usuário entende imediatamente que deve clicar no Ano para abrir os documentos.</p>
-                <div class="url-box">sigese.trt11.jus.br/resolucao-102/anexo-i</div>
-            </div>
-            <div class="tech-card" style="border-left-color: var(--neon-blue);">
-                <span class="comparison-badge" style="background: var(--neon-blue); color: #000;">Vantagem</span>
-                <h3>Foco no Cidadão</h3>
-                <ul>
-                    <li>Redução de carga cognitiva.</li>
-                    <li>Acesso direto sem intermediários.</li>
-                    <li>Padrão visual unificado.</li>
+                    <li>Atualizações seguem releases oficiais do Joomla.</li>
+                    <li>Sem dependência de plugins/extensões customizadas.</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- SLIDE 4: PROBLEMAS TÉCNICOS RESOLVIDOS -->
+    <!-- SLIDE 3: EVOLUÇÃO DA USABILIDADE -->
     <div class="slide-container">
         <img src="DIVINF_LOGO.png" alt="Logo DIVINF" class="divinf-logo" onerror="this.style.display='none'">
         <div class="slide-header">
-            <h2>Engenharia e Segurança</h2>
+            <h2>Evolução da Usabilidade</h2>
+        </div>
+        <div class="card-layout">
+            <div class="tech-card" style="border-left: 12px solid #ef4444;">
+                <span class="badge badge-old">Como era (DSpace)</span>
+                <p>Interface confusa: usuário precisa adivinhar o botão de download.</p>
+                <div class="url-box">
+                    <a href="https://bd.trt11.jus.br/xmlui/handle/bdtrt11/839032" target="_blank" rel="noopener noreferrer">
+                        bd.trt11.jus.br/.../839032
+                    </a>
+                </div>
+            </div>
+            <div class="tech-card" style="border-left: 12px solid #22c55e;">
+                <span class="badge badge-new">Como ficou (Sigese)</span>
+                <p>Navegação intuitiva: o usuário clica no Ano e acessa o dado.</p>
+                <div class="url-box">
+                    <a href="https://sigese.trt11.jus.br/resolucao-102/anexo-i" target="_blank" rel="noopener noreferrer">
+                        sigese.trt11.jus.br/.../anexo-i
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: FUTURO DA BIBLIOTECA DIGITAL -->
+    <div class="slide-container">
+        <img src="DIVINF_LOGO.png" alt="Logo DIVINF" class="divinf-logo" onerror="this.style.display='none'">
+        <div class="slide-header">
+            <h2>Modernização da BD</h2>
         </div>
         <div class="card-layout">
             <div class="tech-card">
-                <h3>Joomla Legado</h3>
+                <h3>Fase de Análise</h3>
                 <ul>
-                    <li>Customizações bloqueavam updates.</li>
-                    <li>CMS em estado crítico de atraso.</li>
+                    <li>Busca por soluções para a Biblioteca Digital.</li>
+                    <li>Mesma lógica de separação do CMS (Joomla).</li>
                 </ul>
             </div>
-            <div class="tech-card">
-                <h3>Fluxo de Publicação</h3>
+            <div class="tech-card" style="border-left-color: var(--accent-teal);">
+                <h3>Objetivos</h3>
                 <ul>
-                    <li>Parser automático de arquivos.</li>
-                    <li>Isola o publicador da complexidade técnica.</li>
-                </ul>
-            </div>
-            <div class="tech-card">
-                <h3>Gap Normativo</h3>
-                <ul>
-                    <li>Criação de APIs inexistentes.</li>
-                    <li>Cobertura total do Ranking CNJ.</li>
+                    <li>Fim da busca complexa e uploads difíceis.</li>
+                    <li>Interface guiada e focada na experiência.</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- SLIDE 5: INTEGRAÇÃO E DADOS ABERTOS -->
+    <!-- SLIDE 5: DADOS ABERTOS E API -->
     <div class="slide-container">
         <img src="DIVINF_LOGO.png" alt="Logo DIVINF" class="divinf-logo" onerror="this.style.display='none'">
         <div class="slide-header">
             <h2>Dados Abertos e APIs</h2>
         </div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; flex-grow: 1;">
-            <div>
-                <div class="tech-card" style="margin-bottom: 20px;">
-                    <h3>Página de Transparência</h3>
-                    <p>O portal atual já referencia os endpoints do Sigese, centralizando a estratégia de Dados Abertos do Tribunal.</p>
-                    <div class="url-box" style="margin-top: 15px;">portal.trt11.jus.br/index.php/transparencia/dados-abertos-e-api-s-publicas</div>
-                </div>
-                <ul style="color: var(--text-dim); font-size: 14px;">
-                    <li>Consolidação de Web Services.</li>
-                    <li>Migração gradual de documentos legados.</li>
-                    <li>Cumprimento dos itens 30/31 do Ranking.</li>
-                </ul>
+        <div class="card-layout">
+            <div class="tech-card">
+                <h3>Integração Total</h3>
+                <p>O portal do TRT11 já referencia os endpoints do Sigese para APIs.</p>
+                <div class="url-box">portal.trt11.jus.br/transparencia/dados-abertos</div>
             </div>
-            <div>
-                <div class="api-box">
-                    <span style="color: #64748b;">// Exemplo de Chamada Sigese via API</span><br>
-                    GET /resolucao-102/anexo-i/data?tipo=json<br><br>
-                    <span style="color: #64748b;">// Resposta Estruturada</span><br>
-                    {<br>
-                    &nbsp;&nbsp;"tribunal": "TRT11",<br>
-                    &nbsp;&nbsp;"data_atualizacao": "2026-03-30",<br>
-                    &nbsp;&nbsp;"formatos": ["CSV", "JSON", "XML"]<br>
-                    }
-                </div>
+            <div class="tech-card">
+                <h3>Conformidade CNJ</h3>
+                <ul>
+                    <li>Webservices públicos sem autenticação.</li>
+                    <li>Formatos JSON, CSV e XML nativos.</li>
+                </ul>
             </div>
         </div>
     </div>
 
-    <!-- SLIDE 6: CRONOGRAMA CRÍTICO -->
+    <!-- SLIDE 6: MARCO TEMPORAL 2026 -->
     <div class="slide-container">
         <img src="DIVINF_LOGO.png" alt="Logo DIVINF" class="divinf-logo" onerror="this.style.display='none'">
         <div class="slide-header">
-            <h2>Marco Temporal 2026</h2>
+            <h2>Marco Temporal Crítico</h2>
         </div>
-        <div style="display: flex; flex-direction: column; gap: 20px; justify-content: center; flex-grow: 1;">
-            <div class="tech-card" style="border-left-color: #ef4444;">
-                <h3 style="color: #ef4444;">Avaliação CNJ: Abril/Maio 2026</h3>
-                <p>O ranking avalia apenas o que está disponível online. O Sigese é a peça-chave para a pontuação máxima.</p>
-            </div>
-            <div class="tech-card">
-                <h3>DIVSEGINF: Estabilidade</h3>
-                <p>Garantir que os robôs do CNJ acessem a API sem bloqueios de segurança indevidos.</p>
-            </div>
-            <div class="tech-card" style="border-left-color: var(--accent-teal);">
-                <h3>Próximos Passos</h3>
-                <p>Migração completa dos links do DSpace e Joomla para o ecossistema Sigese pós-maio/2026.</p>
+        <div class="cover-layout">
+            <div class="tech-card" style="width: 80%; border-left: 20px solid #ef4444;">
+                <h3 style="color: #ef4444; font-size: 50px;">Avaliação CNJ: Abril/Maio 2026</h3>
+                <p style="font-size: 40px;">O Sigese deve estar 100% operacional e com APIs liberadas pela DIVSEGINF para garantir a pontuação no Ranking.</p>
             </div>
         </div>
     </div>
 
     <!-- SLIDE 7: ENCERRAMENTO -->
-    <div class="slide-container" style="background: linear-gradient(135deg, #020617 0%, #0d2b55 100%);">
+    <div class="slide-container" style="background: radial-gradient(circle at center, #0d2b55 0%, #020617 100%);">
         <div class="cover-layout">
-             <img src="DIVINF_LOGO.png" alt="Logo DIVINF" style="height: 120px; margin-bottom: 40px;" onerror="this.style.display='none'">
-             <div class="subtitle" style="font-size: 40px;">Dúvidas?</div>
-             <p style="margin-top: 20px; font-size: 20px; color: var(--text-dim);">Sigese: Elevando o Padrão de Transparência do TRT11</p>
-             <div style="margin-top: 60px; font-size: 14px; opacity: 0.5; color: white;">
-                AMAZONAS E RORAIMA
-             </div>
+             <img src="DIVINF_LOGO.png" alt="Logo DIVINF" style="height: 150px; margin-bottom: 60px;" onerror="this.style.display='none'">
+             <div class="subtitle" style="font-size: 60px;">Dúvidas?</div>
+             <p style="margin-top: 30px; font-size: 32px; color: var(--text-dim);">Sigese: Transparência Desacoplada e Inteligente</p>
         </div>
     </div>
 
