@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sigese - Versão Institucional TRT11</title>
+    <title>SIGESE - Framework de Agilidade SETIC</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
@@ -22,18 +22,15 @@
             --text-dim: #64748B;
             --border-light: #E2E8F0;
             
-            /* Escala de Fontes para TV 43" */
+            /* Escala de Fontes Ampliada para TV 43" */
             --fs-title: 110px;
-            --fs-header: 60px;
+            --fs-header: 64px;
             --fs-body: 34px;
             --fs-card-h3: 42px;
         }
 
         * { box-sizing: border-box; }
-        
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body { 
             margin: 0; padding: 0; 
@@ -44,6 +41,14 @@
             overflow-y: auto;
         }
 
+        .background-pattern {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(circle at 2px 2px, rgba(13, 43, 85, 0.05) 1px, transparent 0);
+            background-size: 60px 60px;
+            z-index: -1;
+        }
+
         /* LAYOUT LANDING PAGE */
         section.slide {
             min-height: 100vh;
@@ -52,9 +57,10 @@
             flex-direction: column;
             padding: 100px 100px;
             position: relative;
+            border-bottom: 1px solid var(--border-light);
         }
 
-        /* VARIANTES DE FUNDO */
+        /* FUNDO ESCURO (CAPA/FIM) */
         .bg-dark {
             background-color: var(--navy);
             color: #FFFFFF;
@@ -80,11 +86,9 @@
             margin: 0;
         }
 
-        .bg-dark .slide-header h2 {
-            color: #FFFFFF;
-        }
+        .bg-dark .slide-header h2 { color: #FFFFFF; }
 
-        /* CARDS INSTITUCIONAIS */
+        /* CARDS E GRIDS */
         .card-layout {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -118,7 +122,7 @@
 
         .info-card ul { padding-left: 40px; }
 
-        /* LISTA COM ÍCONES */
+        /* LISTA COM ÍCONES (Layout conforme image_2f989e.png) */
         .icon-list {
             display: flex;
             flex-direction: column;
@@ -151,7 +155,6 @@
             background: var(--navy);
             padding: 20px 40px;
             border-radius: 8px;
-            font-family: 'Inter', sans-serif;
             font-weight: bold;
             font-size: 28px;
             color: #FFFFFF;
@@ -162,130 +165,50 @@
         }
         .url-box:hover { background: var(--medium-blue); transform: translateY(-3px); }
 
-        /* TIMELINE INSTITUCIONAL */
+        /* TIMELINE */
         .timeline-wrapper { 
-            display: flex; 
-            justify-content: space-between; 
-            position: relative; 
-            margin-top: 150px; 
-            padding-bottom: 100px;
+            display: flex; justify-content: space-between; 
+            position: relative; margin-top: 150px; padding-bottom: 100px;
         }
         .timeline-line { 
-            position: absolute; 
-            top: 110px; 
-            left: 5%; 
-            width: 90%; 
-            height: 4px; 
-            background: var(--border-light); 
-            z-index: 1; 
+            position: absolute; top: 110px; left: 5%; width: 90%; 
+            height: 4px; background: var(--border-light); z-index: 1; 
         }
-        .timeline-point { 
-            width: 30%; 
-            text-align: center; 
-            position: relative; 
-            z-index: 2; 
-        }
-        .timeline-date {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 32px;
-            color: var(--navy);
-            margin-bottom: 45px;
-            display: block;
-            line-height: 1.2;
-        }
-        .timeline-dot { 
-            width: 44px; 
-            height: 44px; 
-            background: var(--teal); 
-            border: 6px solid var(--bg-white); 
-            border-radius: 50%; 
-            margin: 0 auto 40px auto; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        .timeline-dot.critical { 
-            background: #D946EF; /* Destaque para avaliação */
-            transform: scale(1.3); 
-        }
-        .timeline-desc {
-            font-size: 28px;
-            line-height: 1.4;
-            color: var(--text-dark);
-            padding: 0 20px;
-        }
-
-        /* API HIGHLIGHT */
-        .api-layout {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            align-items: center;
-            gap: 80px;
-            flex-grow: 1;
-        }
-        .api-ranking-number {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 180px;
-            color: var(--medium-blue);
-            margin: 0;
-        }
-        .api-ranking-label {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 34px;
-            color: var(--navy);
-            text-transform: uppercase;
-        }
-        .api-bullets li {
-            font-size: 38px;
-            margin-bottom: 40px;
-            color: var(--text-dark);
-            list-style: none;
-            padding-left: 60px;
-            position: relative;
-        }
-        .api-bullets li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--teal);
-            font-size: 60px;
-            line-height: 1;
-        }
+        .timeline-point { width: 30%; text-align: center; position: relative; z-index: 2; }
+        .timeline-date { font-family: 'Montserrat', sans-serif; font-size: 32px; color: var(--navy); margin-bottom: 45px; display: block; }
+        .timeline-dot { width: 44px; height: 44px; background: var(--teal); border: 6px solid var(--bg-white); border-radius: 50%; margin: 0 auto 40px auto; }
+        .timeline-dot.critical { background: #ef4444; transform: scale(1.3); }
 
         /* CAPA / ENCERRAMENTO */
         .full-center { flex-grow: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-        .full-center h1 { font-family: 'Montserrat', sans-serif; font-size: 130px; margin: 0; color: #FFFFFF; }
-        .full-center .subtitle { font-size: 50px; color: var(--teal); letter-spacing: 5px; margin-top: 40px; }
+        .full-center h1 { font-family: 'Montserrat', sans-serif; font-size: 140px; margin: 0; color: #FFFFFF; letter-spacing: -5px; }
+        .full-center .subtitle { font-size: 50px; color: var(--teal); letter-spacing: 5px; margin-top: 40px; font-weight: bold; }
 
         .slide-footer {
-            margin-top: auto;
-            font-size: 22px;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            font-weight: bold;
-            padding-top: 40px;
+            margin-top: auto; font-size: 22px; color: var(--text-dim);
+            text-transform: uppercase; font-weight: bold; padding-top: 40px;
             border-top: 1px solid var(--border-light);
         }
         .bg-dark .slide-footer { border-top-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); }
-
-        .badge-old { background: #FEE2E2; color: #991B1B; padding: 10px 20px; border-radius: 4px; font-weight: bold; display: inline-block; margin-bottom: 20px; }
-        .badge-new { background: #DCFCE7; color: #166534; padding: 10px 20px; border-radius: 4px; font-weight: bold; display: inline-block; margin-bottom: 20px; }
-
     </style>
 </head>
 <body>
 
     <div class="background-pattern"></div>
 
-    <!-- SEÇÃO 1: CAPA (Fundo Escuro) -->
-    <section class="slide bg-dark" id="inicio">
+    <!-- SEÇÃO 1: CAPA -->
+    <section class="slide bg-dark">
         <div class="full-center">
             <h1>SIGESE</h1>
             <div class="subtitle">Visão Estratégica 2026</div>
-            <p style="margin-top: 60px; font-size: 36px; color: rgba(255,255,255,0.7);">Transparência e Modernização Tecnológica</p>
+            <p style="margin-top: 60px; font-size: 38px; color: rgba(255,255,255,0.7); max-width: 900px;">
+                Sistema Gerenciador de Serviços: Agilidade, Microserviços e Independência Tecnológica.
+            </p>
         </div>
-        <div class="slide-footer">TRT11 | SETIC | DIVINF | SEDES | SEIMSIS</div>
+        <div class="slide-footer">TRT11 | SETIC | SEDES | SEIMSIS | DIVINF</div>
     </section>
 
-    <!-- SEÇÃO 2: O QUE É O SIGESE (Fundo Claro) -->
+    <!-- SEÇÃO 2: O QUE É O SIGESE (Conforme imagem enviada) -->
     <section class="slide bg-white">
         <div class="slide-header"><h2>O Que é o Sigese</h2></div>
         <div class="icon-list">
@@ -303,147 +226,124 @@
             </div>
             <div style="text-align: center;">
                 <a href="https://sigese.trt11.jus.br/" target="_blank" class="url-box">
-                    <i class="fa-solid fa-globe"></i> sigese.trt11.jus.br
+                    Acessar sigese.trt11.jus.br
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- SEÇÃO 3: ESTRATÉGIA DE DESACOPLAMENTO -->
+    <!-- SEÇÃO 3: O NOVO CONCEITO -->
     <section class="slide">
-        <div class="slide-header"><h2>Desacoplamento Estratégico</h2></div>
-        <div class="card-layout">
-            <div class="info-card">
-                <h3>Independência do Joomla</h3>
-                <p>Separação total entre as funcionalidades de Transparência e o Portal institucional.</p>
-                <p>Permite instalação "limpa" do CMS, facilitando atualizações oficiais.</p>
-            </div>
-            <div class="info-card">
-                <h3>Manutenibilidade</h3>
-                <p>Fim da dependência de plugins customizados que travavam o Joomla.</p>
-                <p>Maior segurança e agilidade em correções críticas.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEÇÃO 4: EVOLUÇÃO UX -->
-    <section class="slide bg-white">
-        <div class="slide-header"><h2>Evolução da Usabilidade</h2></div>
-        <div class="card-layout">
-            <div class="info-card" style="border-top-color: #ef4444;">
-                <span class="badge-old">Como era (DSpace)</span>
-                <p>Interface confusa: usuário precisava "adivinhar" o local de download.</p>
-                <a href="https://bd.trt11.jus.br/xmlui/handle/bdtrt11/839032" target="_blank" style="color: var(--medium-blue); font-size: 24px; font-weight: bold;">bd.trt11.jus.br/.../839032</a>
-            </div>
-            <div class="info-card" style="border-top-color: #22c55e;">
-                <span class="badge-new">Como ficou (Sigese)</span>
-                <p>Navegação intuitiva: Clique direto no Ano para acessar os arquivos.</p>
-                <a href="https://sigese.trt11.jus.br/resolucao-102/anexo-i" target="_blank" style="color: var(--medium-blue); font-size: 24px; font-weight: bold;">sigese.trt11.jus.br/.../anexo-i</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEÇÃO 5: FUTURO DA BD -->
-    <section class="slide">
-        <div class="slide-header"><h2>Futuro da Biblioteca Digital</h2></div>
-        <div class="card-layout">
-            <div class="info-card">
-                <h3>Análise de Soluções</h3>
-                <p>Busca por novas tecnologias para substituir o modelo atual da BD.</p>
-                <p>Mesma estratégia de desacoplamento aplicada ao Joomla.</p>
-            </div>
-            <div class="info-card">
-                <h3>Foco na Experiência</h3>
-                <p>Eliminação da busca complexa e dos fluxos de upload difíceis.</p>
-                <p>Interface guiada e totalmente focada no cidadão.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEÇÃO 6: FLUXO DE PUBLICAÇÃO -->
-    <section class="slide bg-white">
-        <div class="slide-header"><h2>Fluxo de Publicação</h2></div>
+        <div class="slide-header"><h2>O Novo Conceito do SIGESE</h2></div>
         <div class="icon-list">
             <div class="icon-item">
-                <i class="fa-solid fa-file-arrow-up"></i>
-                <p><strong>Input:</strong> Servidor sobe o arquivo na pasta sem precisar entender de formatos técnicos.</p>
+                <i class="fa-solid fa-bolt"></i>
+                <p>Framework ágil baseado em <strong>CodeIgniter</strong>, permitindo o desenvolvimento recorde de microserviços que o portal institucional não suporta.</p>
             </div>
             <div class="icon-item">
-                <i class="fa-solid fa-gears"></i>
-                <p><strong>Processamento:</strong> Sigese executa o parser automático e estrutura os metadados.</p>
+                <i class="fa-solid fa-code-merge"></i>
+                <p>Versionamento total via <strong>Git</strong>: rastreabilidade total, histórico de alterações e segurança, eliminando quebras causadas por plugins (ex: ChronoForms).</p>
             </div>
             <div class="icon-item">
-                <i class="fa-solid fa-share-from-square"></i>
-                <p><strong>Output:</strong> Dados disponíveis em CSV, JSON e XML instantaneamente via API.</p>
+                <i class="fa-solid fa-puzzle-piece"></i>
+                <p>Independência estratégica: permite manter o <strong>Joomla limpo</strong> para atualizações oficiais, desacoplado de extensões de transparência.</p>
             </div>
         </div>
     </section>
 
-    <!-- SEÇÃO 7: API DE TRANSPARÊNCIA -->
-    <section class="slide">
-        <div class="slide-header"><h2>API de Transparência</h2></div>
-        <div class="api-layout">
-            <div class="api-ranking-highlight">
-                <p class="api-ranking-number">30</p>
-                <p class="api-ranking-label">Item do Ranking CNJ</p>
-            </div>
-            <ul class="api-bullets">
-                <li>Acesso público e sem autenticação para formatos JSON e XML.</li>
-                <li>Consultas estruturadas via parâmetros (Ano, Mês, Tipo).</li>
-                <li>Suporte a acesso programático (CURL, Python, JS).</li>
-            </ul>
-        </div>
-        <div style="text-align: center; margin-top: 40px;">
-            <a href="https://portal.trt11.jus.br/index.php/transparencia/dados-abertos-e-api-s-publicas" target="_blank" class="url-box" style="background: var(--teal);">Referência no Portal do TRT11</a>
-        </div>
-    </section>
-
-    <!-- SEÇÃO 8: MARCO TEMPORAL -->
+    <!-- SEÇÃO 4: ALÉM DO GOOGLE FORMS -->
     <section class="slide bg-white">
-        <div class="slide-header"><h2>Marco Temporal Crítico</h2></div>
+        <div class="slide-header"><h2>Além do Coletor de Dados</h2></div>
+        <div class="card-layout">
+            <div class="info-card">
+                <h3>Google Forms</h3>
+                <p>Limitado à coleta passiva de respostas. Sem processamento de dados, sem integração profunda com bases do Tribunal e sem inteligência de regras de negócio.</p>
+            </div>
+            <div class="info-card" style="border-top-color: var(--teal);">
+                <h3>SIGESE</h3>
+                <p>Processamento real: CRUDs, sistemas de votação e formulários com lógica condicional avançada, integrados e rastreáveis via código.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 5: SUBSTITUIÇÃO CIRÚRGICA DA BD -->
+    <section class="slide">
+        <div class="slide-header"><h2>Substituição Cirúrgica da BD</h2></div>
+        <div class="card-layout">
+            <div class="info-card">
+                <h3>DSpace (Repositório)</h3>
+                <p>Ideal para grandes volumes estáticos, mas confuso para itens que exigem contexto visual (ex: fotos de leilões) ou buscas simplificadas por certidões.</p>
+            </div>
+            <div class="info-card" style="border-top-color: var(--teal);">
+                <h3>SIGESE (Metadados Estruturados)</h3>
+                <p>Gerencia <strong>Leilões, Certidões e Correntes Normativas</strong> (documentos que alteram outros). Interface intuitiva focada no cidadão e no servidor.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 6: GOVERNANÇA E AUDITORIA -->
+    <section class="slide bg-white">
+        <div class="slide-header"><h2>Governança de Dados</h2></div>
+        <div class="icon-list">
+            <div class="icon-item">
+                <i class="fa-solid fa-fingerprint"></i>
+                <p><strong>Auditoria Nativa:</strong> Logs precisos de quem publicou, alterou ou excluiu cada arquivo ou metadado.</p>
+            </div>
+            <div class="icon-item">
+                <i class="fa-solid fa-database"></i>
+                <p><strong>Hub de Integração:</strong> Capaz de conectar e exibir dados de bases externas centralizando aplicações diversificadas.</p>
+            </div>
+            <div class="icon-item">
+                <i class="fa-solid fa-file-export"></i>
+                <p><strong>Conversão Automática:</strong> Parser que gera CSV, JSON e XML instantaneamente a partir do upload, atendendo ao Ranking CNJ.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 7: MARCO TEMPORAL 2026 -->
+    <section class="slide">
+        <div class="slide-header"><h2>Cronograma Estratégico</h2></div>
         <div class="timeline-wrapper">
             <div class="timeline-line"></div>
             <div class="timeline-point">
                 <span class="timeline-date">Até Março<br>2026</span>
                 <div class="timeline-dot"></div>
-                <p class="timeline-desc">Consolidação da migração e testes de carga intensivos.</p>
+                <p class="timeline-desc">Consolidação de microserviços e testes de carga intensivos.</p>
             </div>
             <div class="timeline-point">
                 <span class="timeline-date" style="color: #ef4444;">Abril / Maio<br>2026</span>
                 <div class="timeline-dot critical"></div>
-                <p class="timeline-desc" style="font-weight: bold;">Avaliação oficial do Ranking pelo CNJ.</p>
+                <p class="timeline-desc" style="font-weight: bold;">Avaliação oficial do Ranking pelo CNJ (Itens 29/30).</p>
             </div>
             <div class="timeline-point">
                 <span class="timeline-date">Pós-Maio<br>2026</span>
                 <div class="timeline-dot"></div>
-                <p class="timeline-desc">Migração final de Precatórios e Execução Orçamentária.</p>
+                <p class="timeline-desc">Migração final de arquivos estruturados da Biblioteca Digital.</p>
             </div>
         </div>
     </section>
 
-    <!-- SEÇÃO 9: APOIO DA DIVSEGINF -->
-    <section class="slide">
-        <div class="slide-header"><h2>Apoio Estratégico: DIVSEGINF</h2></div>
+    <!-- SEÇÃO 8: APOIO DIVSEGINF -->
+    <section class="slide bg-white">
+        <div class="slide-header"><h2>Parceria: DIVSEGINF</h2></div>
         <div class="card-layout">
             <div class="info-card">
-                <h3>Estabilidade e Acesso</h3>
-                <p>Parceria fundamental para garantir que o acesso automatizado seja liberado e estável.</p>
-                <p>Foco na manutenção de uma API pública fluída, sem bloqueios indevidos para leitores de máquina.</p>
+                <h3>Infraestrutura Estável</h3>
+                <p>Foco na garantia de acesso automatizado estável para que os robôs do CNJ não encontrem bloqueios indevidos nas APIs.</p>
             </div>
             <div class="info-card">
                 <h3>Gestão de Performance</h3>
-                <p>Trabalho conjunto na gestão de requisições para assegurar que o portal permaneça robusto.</p>
-                <p>Alinhamento direto com os requisitos 30 e 31 do Ranking de Transparência do CNJ.</p>
+                <p>Monitoramento conjunto para assegurar que a escalabilidade do sistema atenda à demanda pública sem comprometer a segurança.</p>
             </div>
         </div>
     </section>
 
-    <!-- SEÇÃO 10: ENCERRAMENTO (Fundo Escuro) -->
+    <!-- SEÇÃO 9: ENCERRAMENTO -->
     <section class="slide bg-dark">
         <div class="full-center">
             <p class="subtitle" style="font-size:80px; margin-bottom:50px;">Agradecemos a Atenção</p>
-            <p style="font-size:40px; color:rgba(255,255,255,0.7); max-width: 850px;">A equipe <strong>DIVINF</strong> está à disposição para quaisquer informações adicionais e esclarecimentos.</p>
-            <p style="margin-top:100px; font-size:24px; opacity:0.5;">TRT11 | AMAZONAS E RORAIMA</p>
+            <p style="font-size:40px; color:rgba(255,255,255,0.7); max-width: 850px;">A equipe <strong>DIVINF</strong> está pronta para entregar agilidade e transparência para o TRT11.</p>
+            <p style="margin-top:100px; font-size:24px; opacity:0.5;">AMAZONAS E RORAIMA</p>
         </div>
     </section>
 
